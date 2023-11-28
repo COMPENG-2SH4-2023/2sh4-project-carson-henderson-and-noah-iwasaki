@@ -7,8 +7,8 @@
 using namespace std;
 
 #define DELAY_CONST 100000 // 0.1s delay
-#define BOARDY 10
-#define BOARDX 20
+#define BOARDY 20
+#define BOARDX 40
 #define ESC 27
 
 GameMechs gameMechs = GameMechs(BOARDX, BOARDY);
@@ -45,7 +45,9 @@ void Initialize(void)
 
 void GetInput(void)
 {
-    gameMechs.setInput(MacUILib_getChar()); // this line tosses the input into the input field of gameMechs
+    gameMechs.setInput('\0');
+    if (MacUILib_hasChar())
+        gameMechs.setInput(MacUILib_getChar()); // this line tosses the input into the input field of gameMechs
 }
 
 void RunLogic(void)
