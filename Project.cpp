@@ -5,7 +5,7 @@
 
 using namespace std;
 
-#define DELAY_CONST 100000
+#define DELAY_CONST 100000 // 0.1s delay
 
 bool exitFlag;
 
@@ -59,7 +59,7 @@ void DrawScreen(void)
 
 void LoopDelay(void)
 {
-    MacUILib_Delay(DELAY_CONST); // 0.1s delay
+    MacUILib_Delay(DELAY_CONST);
 }
 
 
