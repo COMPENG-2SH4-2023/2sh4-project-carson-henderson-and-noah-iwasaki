@@ -1,4 +1,5 @@
 #include "MacUILib.h"
+#include <unistd.h> // Imported this —Noah
 
 print_ptr MacUILib_printf;
 

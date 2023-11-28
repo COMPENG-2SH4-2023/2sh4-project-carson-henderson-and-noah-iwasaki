@@ -8,7 +8,7 @@ using namespace std;
 #define DELAY_CONST 100000 // 0.1s delay
 #define ROWS 10
 #define COLUMNS 20
-#define border BORSYM
+#define BORSYM '#' // Border symbol
 
 bool exitFlag;
 
@@ -62,14 +62,14 @@ void DrawScreen(void)
         cout << BORSYM;
     cout << endl;
     for (int i = 1; i < ROWS - 1; i++) {
-        cout << BORSYM
+        cout << BORSYM;
         for (int j = 1; j < COLUMNS - 1; j++) {
             cout << ' ';
         }
         cout << BORSYM << endl;
     }
     for (int i = 0; i < COLUMNS; i++)
-        cout << '#'
+        cout << BORSYM;
     cout << endl;
 
 
