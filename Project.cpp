@@ -20,11 +20,9 @@ void CleanUp(void);
 
 int main(void)
 {
-
     Initialize();
 
-    while(exitFlag == false)  
-    {
+    while(exitFlag == false) {
         GetInput();
         RunLogic();
         DrawScreen();
@@ -32,7 +30,6 @@ int main(void)
     }
 
     CleanUp();
-
 }
 
 
@@ -68,7 +65,6 @@ void LoopDelay(void)
 
 void CleanUp(void)
 {
-    MacUILib_clearScreen();    
-  
+    MacUILib_clearScreen();
     MacUILib_uninit();
 }
