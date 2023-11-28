@@ -1,16 +1,17 @@
 #include <iostream>
 #include "MacUILib.h"
 #include "objPos.h"
+#include "GameMechs.h"
 
 
 using namespace std;
 
 #define DELAY_CONST 100000 // 0.1s delay
-#define ROWS 10
-#define COLUMNS 20
-#define BORSYM '#' // Border symbol
+#define BOARDY 10
+#define BOARDX 20
+#define ESC 27
 
-bool exitFlag;
+GameMechs gameMechs = GameMechs(BOARDX, BOARDY);
 
 void Initialize(void);
 void GetInput(void);
@@ -25,7 +26,7 @@ int main(void)
 {
     Initialize();
 
-    while(exitFlag == false) {
+    while(gameMechs.getExitFlagStatus() == false) {
         GetInput();
         RunLogic();
         DrawScreen();
@@ -40,36 +41,41 @@ void Initialize(void)
 {
     MacUILib_init();
     MacUILib_clearScreen();
-
-    exitFlag = false;
 }
 
 void GetInput(void)
 {
-
+    gameMechs.setInput(MacUILib_getChar()); // this line tosses the input into the input field of gameMechs
 }
 
 void RunLogic(void)
 {
-    
+    if (gameMechs.getInput() != '\0') {
+        switch (gameMechs.getInput()) {
+        case ESC:
+            gameMechs.setExitTrue();
+            break;
+        }
+        gameMechs.setInput('\0');
+    }
 }
 
 void DrawScreen(void)
 {
     MacUILib_clearScreen();
 
-    for (int i = 0; i < COLUMNS; i++)
-        cout << BORSYM;
+    for (int i = 0; i < gameMechs.getBoardSizeX(); i++)
+        cout << gameMechs.getBorderSymbol();
     cout << endl;
-    for (int i = 1; i < ROWS - 1; i++) {
-        cout << BORSYM;
-        for (int j = 1; j < COLUMNS - 1; j++) {
+    for (int i = 1; i < gameMechs.getBoardSizeY() - 1; i++) {
+        cout << gameMechs.getBorderSymbol();
+        for (int j = 1; j < gameMechs.getBoardSizeX() - 1; j++) {
             cout << ' ';
         }
-        cout << BORSYM << endl;
+        cout << gameMechs.getBorderSymbol() << endl;
     }
-    for (int i = 0; i < COLUMNS; i++)
-        cout << BORSYM;
+    for (int i = 0; i < gameMechs.getBoardSizeX(); i++)
+        cout << gameMechs.getBorderSymbol();
     cout << endl;
 
 
