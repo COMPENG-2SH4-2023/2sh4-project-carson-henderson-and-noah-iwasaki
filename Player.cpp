@@ -14,6 +14,8 @@ Player::Player(GameMechs* thisGMRef)
 Player::~Player()
 {
     // delete any heap members here
+
+    // no heap members?
 }
 
 void Player::getPlayerPos(objPos &returnPos)
@@ -37,26 +39,26 @@ void Player::updatePlayerDir()
 
             // direction processing
             case 'w':
-                if(Dir != DOWN){
-                    Dir = UP;
+                if(myDir != DOWN){
+                    myDir = UP;
                 }
                 break;
 
             case 's':
-                if(Dir != UP){
-                    Dir = DOWN;
+                if(myDir != UP){
+                    myDir = DOWN;
                 }
                 break;
 
             case 'a':
-                if(Dir != RIGHT){
-                    Dir = LEFT;
+                if(myDir != RIGHT){
+                    myDir = LEFT;
                 }
                 break;
 
             case 'd':
-                if(Dir != LEFT){
-                    Dir = RIGHT;
+                if(myDir != LEFT){
+                    myDir = RIGHT;
                 }
                 break;
 
@@ -66,6 +68,8 @@ void Player::updatePlayerDir()
         input = 0;
     }
 
+    
+
 
 
 
@@ -74,5 +78,65 @@ void Player::updatePlayerDir()
 void Player::movePlayer()
 {
     // PPA3 Finite State Machine logic
+    
+    objPos headPos = objPos();
+    playerPosList.getHeadElement(&headPos);
+
+    switch(myDir)
+    {
+
+        // movement cases
+        case UP:
+            headPos.setObjPos(headPos.x, headPos.y - 1, headPos.symbol);
+
+            playerPos.y--;
+            steps++;
+
+            playerPosList.insertHead(headPos);
+            playerPosList.removeTail();
+
+            break;
+
+        case DOWN:
+            headPos.setObjPos(headPos.x, headPos.y + 1, headPos.symbol);
+
+            playerPos.y++;
+            steps++;
+
+            playerPosList.insertHead(headPos);
+            playerPosList.removeTail();
+
+            break;
+
+        case LEFT:
+            headPos.setObjPos(headPos.x - 1, headPos.y, headPos.symbol);
+
+            playerPos.x--;
+            steps++;
+
+            playerPosList.insertHead(headPos);
+            playerPosList.removeTail();
+
+            break;
+
+        case RIGHT:
+            headPos.setObjPos(headPos.x + 1, headPos.y, headPos.symbol);
+
+            playerPos.x++;
+            steps++;
+
+            playerPosList.insertHead(headPos);
+            playerPosList.removeTail();
+
+            break;
+
+        // default state is not moving
+        case NONE:
+        default:
+            break;
+
+    }
+
+
 }
 
