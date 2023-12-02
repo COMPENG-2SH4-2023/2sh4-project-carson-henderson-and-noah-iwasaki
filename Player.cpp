@@ -125,25 +125,25 @@ void Player::movePlayer()
 
     }
 
-
-    /*
-    // wrap around logic
+    const int WIDTH = mainGameMechsRef->getBoardSizeX();
+    const int HEIGHT = mainGameMechsRef->getBoardSizeY();
+    // wrap around logic from ppa3
     // horizontal wrap around
     if(headPos.x < 1){
-        playerPos.x = WIDTH - 2;
+        headPos.setObjPos(WIDTH - 2, headPos.y, headPos.symbol);
     }
-    else if(playerPos.x > WIDTH - 2) {
-        playerPos.x = 1;
+    else if(headPos.x > WIDTH - 2) {
+        headPos.setObjPos(1, headPos.y, headPos.symbol);
     }
 
     // vertical wrap around
-    else if(playerPos.y < 1){
-        playerPos.y = HEIGHT - 2;
+    else if(headPos.y < 1){
+        headPos.setObjPos(headPos.x, HEIGHT - 2, headPos.symbol);
     }
-    else if(playerPos.y > HEIGHT - 2){
-        playerPos.y = 1;
+    else if(headPos.y > HEIGHT - 2){
+        headPos.setObjPos(headPos.x, 1, headPos.symbol);
     }
-    */
+
 
 
 }
