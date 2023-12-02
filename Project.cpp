@@ -86,7 +86,7 @@ void DrawScreen(void)
         cout << gameMechs.getBorderSymbol();
         for (int j = 1; j < gameMechs.getBoardSizeX() - 1; j++) {
             currPos.setObjPos(j, i, 0);
-            snake.getPlayerPos(&playerPos);
+            snake.getPlayerPos(playerPos);
             if (currPos.isPosEqual(playerPos));
                 printf("%c", '*');
         }
