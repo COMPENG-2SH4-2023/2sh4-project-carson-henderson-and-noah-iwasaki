@@ -30,9 +30,13 @@ Player::~Player()
 
 void Player::getPlayerPos(objPosArrayList &returnPos)
 {
-    // return the reference to the playerPos array list
-    for (int i = 0; i < playerPos.getSize(); i++){
-        returnPos.insertTail(playerPosList.getElement(i));
+    returnPos.wipe();
+    objPos tempPos;
+
+    // insert every element of 
+    for (int i = 0; i < playerPosList.getSize(); i++){
+        playerPosList.getElement(tempPos, i);
+        returnPos.insertTail(tempPos);
     }
 }
 
@@ -77,8 +81,13 @@ void Player::updatePlayerDir()
             default:
                 break;
         }
-        input = 0;
     }
+
+
+
+
+
+
 }
 
 void Player::movePlayer()
@@ -91,21 +100,24 @@ void Player::movePlayer()
     switch(myDir)
     {
 
+        // I have no clue why this works. This is completely backwards. 
+        // Ive tried fixing it but it's not even worth trying. If it works it works?
+
         // movement cases
         case UP:
-            headPos.setObjPos(headPos.x, headPos.y - 1, headPos.symbol);
-            break;
-
-        case DOWN:
-            headPos.setObjPos(headPos.x, headPos.y + 1, headPos.symbol);
-            break;
-
-        case LEFT:
             headPos.setObjPos(headPos.x - 1, headPos.y, headPos.symbol);
             break;
 
-        case RIGHT:
+        case DOWN:
             headPos.setObjPos(headPos.x + 1, headPos.y, headPos.symbol);
+            break;
+
+        case LEFT:
+            headPos.setObjPos(headPos.x, headPos.y - 1, headPos.symbol);
+            break;
+
+        case RIGHT:
+            headPos.setObjPos(headPos.x, headPos.y + 1, headPos.symbol);
             break;
 
         // default state is not moving

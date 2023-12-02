@@ -93,3 +93,7 @@ void objPosArrayList::getElement(objPos &returnPos, int index)
     }
     returnPos.setObjPos(aList[index]);
 }
+
+void objPosArrayList::wipe(){
+    sizeList = 0;
+}

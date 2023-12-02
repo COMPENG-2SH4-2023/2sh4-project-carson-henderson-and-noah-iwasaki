@@ -3,19 +3,16 @@
 #include "objPos.h"
 #include "GameMechs.h"
 #include "Player.h"
-#include "Food.h"
 #define DELAY_CONST 100000 // 0.1s delay
-#define BOARDY 20
-#define BOARDX 40
-#define ESC 27
+#define BOARDY 40
+#define BOARDX 20
 
 using namespace std;
 
 GameMechs gameMechs{BOARDX, BOARDY};
 Player snake {&gameMechs};
+objPosArrayList snakeList;
 
-objPos currPos{};
-objPos debug{3, 5, '@'};
 
 
 void Initialize(void);
@@ -25,7 +22,7 @@ void DrawScreen(void);
 void LoopDelay(void);
 void CleanUp(void);
 // ADDITONAL FUNCTIONS
-char symAtPos(int, int);
+
 
 
 
@@ -48,6 +45,8 @@ void Initialize(void)
 {
     MacUILib_init();
     MacUILib_clearScreen();
+
+
 }
 
 void GetInput(void)
@@ -59,11 +58,10 @@ void GetInput(void)
 
 void RunLogic(void)
 {
+
     if (gameMechs.getInput() != '\0') {
-
         snake.updatePlayerDir();
-        gameMechs.setInput('\0');
-
+        gameMechs.setInput('\0'); //reset input
     }
 
     snake.movePlayer();
@@ -74,32 +72,36 @@ void DrawScreen(void)
 {
     objPos playerPos{};
     MacUILib_clearScreen();
-    // Print top line
-    for (int i = 0; i < gameMechs.getBoardSizeX(); i++)
-        cout << gameMechs.getBorderSymbol();
-    cout << endl;
 
 
 
 
-    // Print everything in between
-    
-    for (int i = 1; i < gameMechs.getBoardSizeY() - 1; i++) {
-        cout << gameMechs.getBorderSymbol();
-        for (int j = 1; j < gameMechs.getBoardSizeX() - 1; j++) {
-            currPos.setObjPos(j, i, 0); // We can compare against this objPos
 
+    // Print the board
+    objPos tempPos;
+    char border = gameMechs.getBorderSymbol();
+    snake.getPlayerPos(snakeList);
+
+    for (int i = 0; i < gameMechs.getBoardSizeX(); i++){
+        for (int j = 0; j < gameMechs.getBoardSizeY(); j++){
+            if (i == 0 || i == gameMechs.getBoardSizeX()-1 || j == 0 || j == gameMechs.getBoardSizeY()-1){
+                cout << border;
+            }
+            else {
+                objPos currPos{i, j, ' '};
+
+                for (int n = 0; n < snakeList.getSize(); n++){
+                    snakeList.getElement(tempPos, n);
+                    if (currPos.isPosEqual(&tempPos)){
+                        currPos.setObjPos(currPos.x, currPos.y, tempPos.getSymbol());
+                    }
+                }
+                cout << currPos.getSymbol();
+            }
         }
-        cout << gameMechs.getBorderSymbol() << endl;
+        cout << endl;
     }
-    
 
-
-
-    // Print bottom line
-    for (int i = 0; i < gameMechs.getBoardSizeX(); i++)
-        cout << gameMechs.getBorderSymbol();
-    cout << endl;
 
 
 }
@@ -117,6 +119,3 @@ void CleanUp(void)
 }
 
 // ADDITIONAL FUNCTIONS
-
-char symAtPos(int x, int y)
-{}

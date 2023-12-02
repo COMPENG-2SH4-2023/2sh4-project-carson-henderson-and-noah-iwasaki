@@ -5,6 +5,8 @@
 #include "objPos.h"
 #include "objPosArrayList.h"
 
+#include <iostream>
+
 class Player
 {
     // Construct the remaining declaration from the project manual.
