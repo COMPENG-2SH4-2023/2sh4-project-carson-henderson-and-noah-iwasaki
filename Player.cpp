@@ -7,7 +7,17 @@ Player::Player(GameMechs* thisGMRef)
     myDir = STOP;
 
     // more actions to be included
-    playerPosList = objPosArrayList();
+
+    objPos startPos{mainGameMechsRef->getBoardSizeX() / 2, mainGameMechsRef->getBoardSizeY() / 2, '*'};
+    objPosArrayList playerPos;
+
+    objPos temp1{mainGameMechsRef->getBoardSizeX() / 2 + 1, mainGameMechsRef->getBoardSizeY() / 2, '*'};
+    playerPosList.insertTail(temp1);
+
+    temp1.setObjPos(mainGameMechsRef->getBoardSizeX() / 2 + 2, mainGameMechsRef->getBoardSizeY() / 2, '*');
+    playerPosList.insertTail(temp1);
+
+    playerPosList.insertHead(startPos);
 }
 
 
@@ -18,10 +28,12 @@ Player::~Player()
     // no heap members?
 }
 
-void Player::getPlayerPos(objPos &returnPos)
+void Player::getPlayerPos(objPosArrayList &returnPos)
 {
     // return the reference to the playerPos array list
-    playerPosList.getHeadElement(returnPos);
+    for (int i = 0; i < playerPos.getSize(); i++){
+        returnPos.insertTail(playerPosList.getElement(i));
+    }
 }
 
 void Player::updatePlayerDir()
@@ -88,34 +100,18 @@ void Player::movePlayer()
         // movement cases
         case UP:
             headPos.setObjPos(headPos.x, headPos.y - 1, headPos.symbol);
-
-            playerPosList.insertHead(headPos);
-            playerPosList.removeTail();
-
             break;
 
         case DOWN:
             headPos.setObjPos(headPos.x, headPos.y + 1, headPos.symbol);
-
-            playerPosList.insertHead(headPos);
-            playerPosList.removeTail();
-
             break;
 
         case LEFT:
             headPos.setObjPos(headPos.x - 1, headPos.y, headPos.symbol);
-
-            playerPosList.insertHead(headPos);
-            playerPosList.removeTail();
-
             break;
 
         case RIGHT:
             headPos.setObjPos(headPos.x + 1, headPos.y, headPos.symbol);
-
-            playerPosList.insertHead(headPos);
-            playerPosList.removeTail();
-
             break;
 
         // default state is not moving
@@ -144,6 +140,8 @@ void Player::movePlayer()
         headPos.setObjPos(headPos.x, 1, headPos.symbol);
     }
 
+    playerPosList.insertHead(headPos);
+    playerPosList.removeTail();
 
 
 }

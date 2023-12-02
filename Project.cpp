@@ -59,13 +59,14 @@ void GetInput(void)
 void RunLogic(void)
 {
     if (gameMechs.getInput() != '\0') {
-        switch (gameMechs.getInput()) {
-        case ESC:
-            gameMechs.setExitTrue();
-            break;
-        }
+
+        snake.updatePlayerDir();
         gameMechs.setInput('\0');
+
     }
+
+    snake.movePlayer();
+
 }
 
 void DrawScreen(void)
