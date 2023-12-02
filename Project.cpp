@@ -2,16 +2,20 @@
 #include "MacUILib.h"
 #include "objPos.h"
 #include "GameMechs.h"
-
-
-using namespace std;
-
+#include "Player.h"
 #define DELAY_CONST 100000 // 0.1s delay
 #define BOARDY 20
 #define BOARDX 40
 #define ESC 27
 
+using namespace std;
+
 GameMechs gameMechs = GameMechs(BOARDX, BOARDY);
+Player snake = Player(gameMechs);
+
+objPos currPos = objPos();
+objPos debug = objPos(3, 5, '@');
+
 
 void Initialize(void);
 void GetInput(void);
@@ -19,6 +23,8 @@ void RunLogic(void);
 void DrawScreen(void);
 void LoopDelay(void);
 void CleanUp(void);
+// ADDITONAL FUNCTIONS
+char symAtPos(int, int);
 
 
 
@@ -65,17 +71,28 @@ void RunLogic(void)
 void DrawScreen(void)
 {
     MacUILib_clearScreen();
-
+    // Print top line
     for (int i = 0; i < gameMechs.getBoardSizeX(); i++)
         cout << gameMechs.getBorderSymbol();
     cout << endl;
+
+
+
+
+    // Print everything in between
+    
     for (int i = 1; i < gameMechs.getBoardSizeY() - 1; i++) {
         cout << gameMechs.getBorderSymbol();
         for (int j = 1; j < gameMechs.getBoardSizeX() - 1; j++) {
-            cout << ' ';
+            currPos.setObjPos(j, i, 0);
         }
         cout << gameMechs.getBorderSymbol() << endl;
     }
+    
+
+
+
+    // Print bottom line
     for (int i = 0; i < gameMechs.getBoardSizeX(); i++)
         cout << gameMechs.getBorderSymbol();
     cout << endl;
@@ -94,3 +111,8 @@ void CleanUp(void)
     MacUILib_clearScreen();
     MacUILib_uninit();
 }
+
+// ADDITIONAL FUNCTIONS
+
+char symAtPos(int x, int y)
+{}
