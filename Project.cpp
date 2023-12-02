@@ -10,11 +10,11 @@
 
 using namespace std;
 
-GameMechs gameMechs = GameMechs(BOARDX, BOARDY);
-Player snake = Player(gameMechs);
+GameMechs gameMechs{BOARDX, BOARDY};
+Player snake {&gameMechs};
 
-objPos currPos = objPos();
-objPos debug = objPos(3, 5, '@');
+objPos currPos{};
+objPos debug{3, 5, '@'};
 
 
 void Initialize(void);
@@ -70,6 +70,7 @@ void RunLogic(void)
 
 void DrawScreen(void)
 {
+    objPos playerPos{};
     MacUILib_clearScreen();
     // Print top line
     for (int i = 0; i < gameMechs.getBoardSizeX(); i++)
@@ -85,6 +86,9 @@ void DrawScreen(void)
         cout << gameMechs.getBorderSymbol();
         for (int j = 1; j < gameMechs.getBoardSizeX() - 1; j++) {
             currPos.setObjPos(j, i, 0);
+            snake.getPlayerPos(&playerPos);
+            if (currPos.isPosEqual(playerPos));
+                printf("%c", '*');
         }
         cout << gameMechs.getBorderSymbol() << endl;
     }
