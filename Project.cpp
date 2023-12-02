@@ -3,6 +3,7 @@
 #include "objPos.h"
 #include "GameMechs.h"
 #include "Player.h"
+#include "Food.h"
 #define DELAY_CONST 100000 // 0.1s delay
 #define BOARDY 20
 #define BOARDX 40
@@ -85,14 +86,8 @@ void DrawScreen(void)
     for (int i = 1; i < gameMechs.getBoardSizeY() - 1; i++) {
         cout << gameMechs.getBorderSymbol();
         for (int j = 1; j < gameMechs.getBoardSizeX() - 1; j++) {
-            currPos.setObjPos(j, i, 0);
-            snake.getPlayerPos(playerPos);
-            if (currPos.isPosEqual(&playerPos)) {
-                printf("%c", '*');
-            }
-            else {
-                printf("%c", ' ');
-            }
+            currPos.setObjPos(j, i, 0); // We can compare against this objPos
+
         }
         cout << gameMechs.getBorderSymbol() << endl;
     }

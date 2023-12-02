@@ -67,12 +67,6 @@ void Player::updatePlayerDir()
         }
         input = 0;
     }
-
-
-
-
-
-
 }
 
 void Player::movePlayer()
