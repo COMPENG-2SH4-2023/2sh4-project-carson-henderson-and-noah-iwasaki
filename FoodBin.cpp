@@ -3,17 +3,29 @@
 
 FoodBin::FoodBin(Player &snake){ 
 
-    int size = 5;
+    size = 5;
+    foodList = new Food[size];
 
-    Food *foodList = new Food[size];
+    // just copy the snakes game mechanics reference
+    mainGameMechsRef = snake.getGameMechs();
 
+    // store which entries the snake is using so food doesnt generate on top of them
+    objPosArrayList blockedList;
+    snake.getPlayerPos(blockedList);
+
+    // finish building every food item
     for (int i = 0; i < size; i++){
-        foodList[i].updateGameMechs(snake.getGameMechs());
 
-        // store the snakes body so random elements are not generated over it
-        objPosArrayList blockOff;
-        snake.getPlayerPos(blockOff);
-        foodList[i].generateFood(blockOff);
+        foodList[i].updateGameMechs(mainGameMechsRef);
+
+        foodList[i].generateFood(blockedList);
+
+        // add the new position to the blocked list
+        objPos temp;
+        foodList[i].getFoodPos(temp);
+        blockedList.insertTail(temp); 
+        // For whatever stupid reason, adding to head causes a segmentation fault
+        // I have no idea why, screw this code.
     }
 }
 
@@ -30,20 +42,29 @@ int FoodBin::getSize(){
 
 bool FoodBin::checkFoodCollision(Player &snake){
 
-    objPos temp;
-    snake.getHeadPos(temp);
+    objPos headPos;
+    snake.getHeadPos(headPos);
 
     for (int i = 0; i < size; i++){
 
-        if (foodList[i].checkForFood(temp)){
+        if (foodList[i].checkForFood(headPos)){
 
             // store every element from the snakes body
-            objPosArrayList snakeBody;
-            snake.getPlayerPos(snakeBody);
+            objPosArrayList blockedList;
+            snake.getPlayerPos(blockedList);
+
+            objPos temp;
+
+            // add every food item to the blocked list
+            for (int j = 0; j < 5; j++){
+                foodList[j].getFoodPos(temp);
+                blockedList.insertHead(temp);
+            }
 
             // generate another food
-            foodList[i].generateFood(snakeBody);
+            foodList[i].generateFood(blockedList);
 
+            snake.foodEaten();
 
             return true;
         }
@@ -61,6 +82,7 @@ bool FoodBin::isFoodAt(objPos &foodPos){
         if (foodList[i].checkForFood(foodPos)){
             return true;
         }
+
     }
     return false;
 }

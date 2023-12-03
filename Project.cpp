@@ -15,7 +15,7 @@ Player snake {&gameMechs};
 objPosArrayList snakeList;
 
 FoodBin apples{snake};
-
+Food apple;
 
 void Initialize(void);
 void GetInput(void);
@@ -46,7 +46,7 @@ int main(void)
 void Initialize(void)
 {
     MacUILib_init();
-    //MacUILib_clearScreen();
+    MacUILib_clearScreen();
 
     snake.getPlayerPos(snakeList);
 
@@ -78,8 +78,8 @@ void RunLogic(void)
     }
     */
 
-    apples.checkFoodCollision(snake);
 
+    apples.checkFoodCollision(snake);
 
     // move the snake
     snake.movePlayer();
@@ -91,7 +91,7 @@ void RunLogic(void)
 void DrawScreen(void)
 {
     objPos playerPos{};
-    //MacUILib_clearScreen();
+    MacUILib_clearScreen();
 
     // Print the board
     objPos tempPos;
@@ -125,13 +125,7 @@ void DrawScreen(void)
 
     cout << "Your score is: " << gameMechs.getScore() << endl;
 
-    //debugging
-    cout << "no segfault yet!";
-
-    cout << "Food #1 at: " << apples.getFoodX(1) << ", " << apples.getFoodY(1);
-
-    gameMechs.setExitTrue();
-
+    //gameMechs.setExitTrue();
 
 }
 

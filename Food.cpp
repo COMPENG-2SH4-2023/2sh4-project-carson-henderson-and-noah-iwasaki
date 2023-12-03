@@ -2,6 +2,8 @@
 #include <time.h>
 #include <stdlib.h>
 
+#include <iostream>
+
 Food::Food()
 {
     // empty constructor. This is here so an array of food objects can be declared.
@@ -35,16 +37,33 @@ Food::~Food(){
 
 void Food::generateFood(objPosArrayList blockOff){
 
-    bool posNotFound = true;
-    do {
+    // run this loop while the generated element is not in blockList
+    bool unique;
+    do{
+        // fun fact: if you dont set unique to true here, it doesnt work!
+        // its 3 am and i have spent the last 2 hours debugging this garbage
+        unique = true;
+
+        // generate a random position
         foodPos.setObjPos(rand() % (mainGameMechsRef->getBoardSizeX() - 2) + 1, rand() % (mainGameMechsRef->getBoardSizeY() - 2) + 1, '&');
+
+        // check if this position is in blockList
         for (int i = 0; i < blockOff.getSize(); i++){
-            objPos tempPos;
-            blockOff.getElement(tempPos, i);
-            if (!foodPos.isPosEqual(&tempPos))
-                posNotFound = false;
+
+            objPos temp;
+            blockOff.getElement(temp, i);
+
+            if (temp.isPosEqual(&foodPos)){
+                unique = false;
+                break;
+            }
         }
-    } while (posNotFound);
+    }
+    while (unique == false);
+
+
+    std::cout << "placed food at: " << foodPos.x << " " << foodPos.y << endl;
+    
 }
 
 

@@ -50,6 +50,7 @@ void objPosArrayList::insertTail(objPos thisPos)
     }
 
     // add the input to the end of the list
+    //sizeList++;
     aList[sizeList].setObjPos(thisPos);
     sizeList++;
 }

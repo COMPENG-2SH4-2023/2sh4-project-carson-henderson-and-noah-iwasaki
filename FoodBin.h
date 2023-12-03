@@ -11,6 +11,7 @@ class FoodBin
 
         Food *foodList;
         int size; // this is probably bad syntax but id rather have size be a consts
+        GameMechs *mainGameMechsRef;
 
     public:
 

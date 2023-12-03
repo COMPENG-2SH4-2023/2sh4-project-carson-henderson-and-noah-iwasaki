@@ -15,6 +15,7 @@ class Food
         Food(GameMechs* thisGMRef);
         ~Food();
 
+        // make sure to use this after using the default constructor
         void updateGameMechs(GameMechs *thisGMRef);
 
         void generateFood(objPosArrayList blockOff);

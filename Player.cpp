@@ -30,7 +30,7 @@ void Player::getPlayerPos(objPosArrayList &returnPos)
     // insert every element of 
     for (int i = 0; i < playerPosList.getSize(); i++){
         playerPosList.getElement(tempPos, i);
-        returnPos.insertTail(tempPos);
+        returnPos.insertHead(tempPos);
     }
 }
 
