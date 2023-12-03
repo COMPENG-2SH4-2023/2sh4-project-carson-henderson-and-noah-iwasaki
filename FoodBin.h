@@ -10,18 +10,22 @@ class FoodBin
     private:
 
         Food *foodList;
-        const int size = 5;
+        int size; // this is probably bad syntax but id rather have size be a consts
 
     public:
 
-        FoodBin(Player snake);
+        FoodBin(Player &snake);
         ~FoodBin();
 
-        bool checkFoodCollision(Player snake);
+        int getSize();
+
+        bool checkFoodCollision(Player &snake);
+        bool isFoodAt(objPos &foodPos);
+
+        // debugger functions
+        int getFoodX(int i);
+        int getFoodY(int i);
 
 };
-
-
-
 
 #endif

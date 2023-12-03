@@ -3,7 +3,6 @@
 #include "objPos.h"
 #include "GameMechs.h"
 #include "Player.h"
-#include "Food.h"
 #include "FoodBin.h"
 #define DELAY_CONST 100000 // 0.1s delay
 #define BOARDY 40
@@ -15,7 +14,7 @@ GameMechs gameMechs{BOARDX, BOARDY};
 Player snake {&gameMechs};
 objPosArrayList snakeList;
 
-Food apple{&gameMechs};
+FoodBin apples{snake};
 
 
 void Initialize(void);
@@ -47,11 +46,10 @@ int main(void)
 void Initialize(void)
 {
     MacUILib_init();
-    MacUILib_clearScreen();
+    //MacUILib_clearScreen();
 
     snake.getPlayerPos(snakeList);
 
-    apple.generateFood(snakeList);
 }
 
 void GetInput(void)
@@ -71,12 +69,17 @@ void RunLogic(void)
     }
 
     // check if the snake is on a food tile
+    /*
     objPos head;
     snake.getHeadPos(head);
     if (apple.checkForFood(head)){
         apple.generateFood(snakeList);
         snake.foodEaten();
     }
+    */
+
+    apples.checkFoodCollision(snake);
+
 
     // move the snake
     snake.movePlayer();
@@ -88,11 +91,7 @@ void RunLogic(void)
 void DrawScreen(void)
 {
     objPos playerPos{};
-    MacUILib_clearScreen();
-
-
-
-
+    //MacUILib_clearScreen();
 
     // Print the board
     objPos tempPos;
@@ -106,8 +105,6 @@ void DrawScreen(void)
             }
             else {
                 objPos currPos{i, j, ' '};
-                objPos applePos;
-                apple.getFoodPos(applePos);
 
                 for (int n = 0; n < snakeList.getSize(); n++){
                     snakeList.getElement(tempPos, n);
@@ -115,8 +112,9 @@ void DrawScreen(void)
                         currPos.setObjPos(currPos.x, currPos.y, tempPos.getSymbol());
                         break;
                     }
-                    else if (currPos.isPosEqual(&applePos)){
+                    else if (apples.isFoodAt(currPos)){
                         currPos.setObjPos(currPos.x, currPos.y, 'a');
+                        break;
                     }
                 }
                 cout << currPos.getSymbol();
@@ -126,6 +124,13 @@ void DrawScreen(void)
     }
 
     cout << "Your score is: " << gameMechs.getScore() << endl;
+
+    //debugging
+    cout << "no segfault yet!";
+
+    cout << "Food #1 at: " << apples.getFoodX(1) << ", " << apples.getFoodY(1);
+
+    gameMechs.setExitTrue();
 
 
 }
