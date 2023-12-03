@@ -2,30 +2,47 @@
 #include <time.h>
 #include <stdlib.h>
 
-srand(time(NULL));
-
 
 Food::Food(GameMechs* thisGMRef)
 {
     mainGameMechsRef = thisGMRef;
+    objPos foodPos;
     foodPos.setObjPos(4,4,'&');
+
+    srand(time(NULL));
 }
 
-Food::~Food() {}
+Food::~Food(){
+    // nothing
+}
 
 
-void Food::generateFood(objPos blockOff)
-{
-    posNotFound = 1;
+void Food::generateFood(objPosArrayList blockOff){
+
+    bool posNotFound = true;
     do {
         foodPos.setObjPos(rand() % (mainGameMechsRef->getBoardSizeX() - 2) + 1, rand() % (mainGameMechsRef->getBoardSizeY() - 2) + 1, '&');
-        if (!foodPos.isPosEqual(&blockOff))
-            posNotFound = 0;
-    } while (posNotFound)
+        for (int i = 0; i < blockOff.getSize(); i++){
+            objPos tempPos;
+            blockOff.getElement(tempPos, i);
+            if (!foodPos.isPosEqual(&tempPos))
+                posNotFound = false;
+        }
+    } while (posNotFound);
 }
 
 
 void Food::getFoodPos(objPos &returnPos)
 {
     returnPos.setObjPos(foodPos);
+}
+
+// check if there is food at the head position
+bool Food::checkForFood(objPos &head){
+
+    if (foodPos.isPosEqual(&head)){
+        return true;
+    }
+    return false;
+
 }

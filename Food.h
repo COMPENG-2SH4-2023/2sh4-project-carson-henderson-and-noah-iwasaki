@@ -1,6 +1,9 @@
 #ifndef FOOD_H
 #define FOOD_H
 
+#include "objPosArrayList.h"
+#include "GameMechs.h"
+
 class Food
 {
     private:
@@ -10,8 +13,9 @@ class Food
         Food(GameMechs* thisGMRef);
         ~Food();
 
-        void generateFood(objPos blockOff);
+        void generateFood(objPosArrayList blockOff);
         void getFoodPos(objPos &returnPos);
+        bool checkForFood(objPos &head);
 };
 
 #endif

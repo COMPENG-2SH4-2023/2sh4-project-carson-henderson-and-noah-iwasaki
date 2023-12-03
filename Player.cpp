@@ -8,14 +8,8 @@ Player::Player(GameMechs* thisGMRef)
 
     // more actions to be included
 
-    objPos startPos{mainGameMechsRef->getBoardSizeX() / 2, mainGameMechsRef->getBoardSizeY() / 2, '*'};
+    objPos startPos{mainGameMechsRef->getBoardSizeX() / 2, mainGameMechsRef->getBoardSizeY() / 2, -2};
     objPosArrayList playerPos;
-
-    objPos temp1{mainGameMechsRef->getBoardSizeX() / 2 + 1, mainGameMechsRef->getBoardSizeY() / 2, '*'};
-    playerPosList.insertTail(temp1);
-
-    temp1.setObjPos(mainGameMechsRef->getBoardSizeX() / 2 + 2, mainGameMechsRef->getBoardSizeY() / 2, '*');
-    playerPosList.insertTail(temp1);
 
     playerPosList.insertHead(startPos);
 }
@@ -82,12 +76,6 @@ void Player::updatePlayerDir()
                 break;
         }
     }
-
-
-
-
-
-
 }
 
 void Player::movePlayer()
@@ -152,3 +140,33 @@ void Player::movePlayer()
 
 }
 
+// duplicate the tail of the snake
+// the duplicate is removed when the snake moves, leaving one tail
+void Player::foodEaten(){
+
+    objPos tailPos;
+    playerPosList.getTailElement(tailPos);
+    playerPosList.insertTail(tailPos);
+
+    mainGameMechsRef->incrementScore();
+
+}
+
+void Player::getHeadPos(objPos &returnPos){
+    playerPosList.getHeadElement(returnPos);
+}
+
+void Player::checkSuicide(){
+
+    // check if the head position overlaps any other body segment
+    objPos headPos;
+    playerPosList.getHeadElement(headPos);
+    for (int i = 1; i < playerPosList.getSize(); i++){
+        objPos tempPos;
+        playerPosList.getElement(tempPos, i);
+        if (headPos.isPosEqual(&tempPos)){
+            mainGameMechsRef->setExitTrue();
+        }
+    }
+
+}

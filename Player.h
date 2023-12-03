@@ -22,8 +22,12 @@ class Player
         ~Player();
 
         void getPlayerPos(objPosArrayList &returnPos); // Upgrade this in iteration 3.
+        void getHeadPos(objPos &returnPos);
         void updatePlayerDir();
         void movePlayer();
+
+        void foodEaten();
+        void checkSuicide();
 
     private:
         objPosArrayList playerPosList;   // Upgrade this in iteration 3.       
