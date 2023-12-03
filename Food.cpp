@@ -37,15 +37,26 @@ Food::~Food(){
 
 void Food::generateFood(objPosArrayList blockOff){
 
+    // generate the foods symbol
+    // a - normal food, 1 point
+    // @ - super food, 5 points
+    char symbol = 'a';
+    int randomNum = rand() % 10;
+    if (randomNum == 0){
+        symbol = '@';
+    }
+
+
+
     // run this loop while the generated element is not in blockList
     bool unique;
     do{
         // fun fact: if you dont set unique to true here, it doesnt work!
-        // its 3 am and i have spent the last 2 hours debugging this garbage
+        // its 3 am and i have spent the last 2 hours debugging thi
         unique = true;
 
         // generate a random position
-        foodPos.setObjPos(rand() % (mainGameMechsRef->getBoardSizeX() - 2) + 1, rand() % (mainGameMechsRef->getBoardSizeY() - 2) + 1, '&');
+        foodPos.setObjPos(rand() % (mainGameMechsRef->getBoardSizeX() - 2) + 1, rand() % (mainGameMechsRef->getBoardSizeY() - 2) + 1, symbol);
 
         // check if this position is in blockList
         for (int i = 0; i < blockOff.getSize(); i++){
@@ -60,9 +71,6 @@ void Food::generateFood(objPosArrayList blockOff){
         }
     }
     while (unique == false);
-
-
-    std::cout << "placed food at: " << foodPos.x << " " << foodPos.y << endl;
     
 }
 

@@ -47,7 +47,7 @@ class GameMechs
         char getBorderSymbol();
 
         int getScore();
-        void incrementScore();
+        void incrementScore(int n);
       
 
 };

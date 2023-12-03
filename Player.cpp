@@ -142,13 +142,13 @@ void Player::movePlayer()
 
 // duplicate the tail of the snake
 // the duplicate is removed when the snake moves, leaving one tail
-void Player::foodEaten(){
+void Player::foodEaten(int n){
 
     objPos tailPos;
     playerPosList.getTailElement(tailPos);
     playerPosList.insertTail(tailPos);
 
-    mainGameMechsRef->incrementScore();
+    mainGameMechsRef->incrementScore(n);
 
 }
 

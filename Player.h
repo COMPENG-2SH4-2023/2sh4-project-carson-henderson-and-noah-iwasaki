@@ -26,7 +26,7 @@ class Player
         void updatePlayerDir();
         void movePlayer();
 
-        void foodEaten();
+        void foodEaten(int n);
         void checkSuicide();
         GameMechs *getGameMechs();
 

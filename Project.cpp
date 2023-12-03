@@ -113,7 +113,6 @@ void DrawScreen(void)
                         break;
                     }
                     else if (apples.isFoodAt(currPos)){
-                        currPos.setObjPos(currPos.x, currPos.y, 'a');
                         break;
                     }
                 }
