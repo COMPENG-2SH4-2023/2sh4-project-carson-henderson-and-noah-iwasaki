@@ -1,0 +1,257 @@
+Dr. Memory version 2.6.0 build 0 built on Sep 21 2023 17:48:48
+Windows version: WinVer=105;Rel=2009;Build=22621;Edition=Core
+Dr. Memory results for pid 19208: "Project.exe"
+Application cmdline: "Project.exe"
+Recorded 124 suppression(s) from default C:\Program Files (x86)\Dr. Memory\bin\suppress-default.txt
+
+Error #1: UNADDRESSABLE ACCESS of freed memory: writing 0x01809dec-0x01809df0 4 byte(s)
+# 0 objPos::setObjPos                                       [C:\Users\Carso\OneDrive\Desktop\School Shit\Y2S1\2SH4_Code\project\2sh4-project-carson-henderson-and-noah-iwasaki/objPos.cpp:27]
+# 1 objPosArrayList::insertTail                             [c:\Users\noahi\OneDrive - McMaster University\Documents\McMaster\COMPENG 2SH4\Root\Project\2sh4-project-carson-henderson-and-noah-iwasaki/objPosArrayList.cpp:54]
+# 2 FoodBin::FoodBin                                        [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/FoodBin.cpp:26]
+# 3 __static_initialization_and_destruction_0               [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:17]
+# 4 _GLOBAL__sub_I_gameMechs                                [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:144]
+# 5 .text      
+# 6 mainCRTStartup
+# 7 ntdll.dll!RtlInitializeExceptionChain                  +0x6a     (0x7795bd2b <ntdll.dll+0x6bd2b>)
+# 8 ntdll.dll!RtlClearBits                                 +0xbe     (0x7795bcaf <ntdll.dll+0x6bcaf>)
+Note: @0:00:00.808 in thread 16516
+Note: prev lower malloc:  0x01809d68-0x01809dbc
+Note: 0x01809dec-0x01809df0 overlaps memory 0x01809de0-0x0180a740 that was freed here:
+Note: # 0 replace_operator_delete_array_nothrow                   [D:\a\drmemory\drmemory\common\alloc_replace.c:3002]
+Note: # 1 objPosArrayList::~objPosArrayList                       [c:\Users\noahi\OneDrive - McMaster University\Documents\McMaster\COMPENG 2SH4\Root\Project\2sh4-project-carson-henderson-and-noah-iwasaki/objPosArrayList.cpp:19]
+Note: # 2 FoodBin::FoodBin                                        [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/FoodBin.cpp:21]
+Note: # 3 __static_initialization_and_destruction_0               [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:17]
+Note: # 4 _GLOBAL__sub_I_gameMechs                                [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:144]
+Note: # 5 .text      
+Note: instruction: mov    %edx -> (%eax)
+
+Error #2: UNADDRESSABLE ACCESS of freed memory: writing 0x01809df0-0x01809df4 4 byte(s)
+# 0 objPos::setObjPos                                       [C:\Users\Carso\OneDrive\Desktop\School Shit\Y2S1\2SH4_Code\project\2sh4-project-carson-henderson-and-noah-iwasaki/objPos.cpp:28]
+# 1 objPosArrayList::insertTail                             [c:\Users\noahi\OneDrive - McMaster University\Documents\McMaster\COMPENG 2SH4\Root\Project\2sh4-project-carson-henderson-and-noah-iwasaki/objPosArrayList.cpp:54]
+# 2 FoodBin::FoodBin                                        [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/FoodBin.cpp:26]
+# 3 __static_initialization_and_destruction_0               [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:17]
+# 4 _GLOBAL__sub_I_gameMechs                                [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:144]
+# 5 .text      
+# 6 mainCRTStartup
+# 7 ntdll.dll!RtlInitializeExceptionChain                  +0x6a     (0x7795bd2b <ntdll.dll+0x6bd2b>)
+# 8 ntdll.dll!RtlClearBits                                 +0xbe     (0x7795bcaf <ntdll.dll+0x6bcaf>)
+Note: @0:00:00.865 in thread 16516
+Note: prev lower malloc:  0x01809d68-0x01809dbc
+Note: 0x01809df0-0x01809df4 overlaps memory 0x01809de0-0x0180a740 that was freed here:
+Note: # 0 replace_operator_delete_array_nothrow                   [D:\a\drmemory\drmemory\common\alloc_replace.c:3002]
+Note: # 1 objPosArrayList::~objPosArrayList                       [c:\Users\noahi\OneDrive - McMaster University\Documents\McMaster\COMPENG 2SH4\Root\Project\2sh4-project-carson-henderson-and-noah-iwasaki/objPosArrayList.cpp:19]
+Note: # 2 FoodBin::FoodBin                                        [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/FoodBin.cpp:21]
+Note: # 3 __static_initialization_and_destruction_0               [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:17]
+Note: # 4 _GLOBAL__sub_I_gameMechs                                [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:144]
+Note: # 5 .text      
+Note: instruction: mov    %edx -> 0x04(%eax)
+
+Error #3: UNADDRESSABLE ACCESS of freed memory: writing 0x01809df4-0x01809df5 1 byte(s)
+# 0 objPos::setObjPos                                       [C:\Users\Carso\OneDrive\Desktop\School Shit\Y2S1\2SH4_Code\project\2sh4-project-carson-henderson-and-noah-iwasaki/objPos.cpp:29]
+# 1 objPosArrayList::insertTail                             [c:\Users\noahi\OneDrive - McMaster University\Documents\McMaster\COMPENG 2SH4\Root\Project\2sh4-project-carson-henderson-and-noah-iwasaki/objPosArrayList.cpp:54]
+# 2 FoodBin::FoodBin                                        [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/FoodBin.cpp:26]
+# 3 __static_initialization_and_destruction_0               [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:17]
+# 4 _GLOBAL__sub_I_gameMechs                                [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:144]
+# 5 .text      
+# 6 mainCRTStartup
+# 7 ntdll.dll!RtlInitializeExceptionChain                  +0x6a     (0x7795bd2b <ntdll.dll+0x6bd2b>)
+# 8 ntdll.dll!RtlClearBits                                 +0xbe     (0x7795bcaf <ntdll.dll+0x6bcaf>)
+Note: @0:00:00.866 in thread 16516
+Note: prev lower malloc:  0x01809d68-0x01809dbc
+Note: 0x01809df4-0x01809df5 overlaps memory 0x01809de0-0x0180a740 that was freed here:
+Note: # 0 replace_operator_delete_array_nothrow                   [D:\a\drmemory\drmemory\common\alloc_replace.c:3002]
+Note: # 1 objPosArrayList::~objPosArrayList                       [c:\Users\noahi\OneDrive - McMaster University\Documents\McMaster\COMPENG 2SH4\Root\Project\2sh4-project-carson-henderson-and-noah-iwasaki/objPosArrayList.cpp:19]
+Note: # 2 FoodBin::FoodBin                                        [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/FoodBin.cpp:21]
+Note: # 3 __static_initialization_and_destruction_0               [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:17]
+Note: # 4 _GLOBAL__sub_I_gameMechs                                [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:144]
+Note: # 5 .text      
+Note: instruction: mov    %dl -> 0x08(%eax)
+
+Error #4: UNADDRESSABLE ACCESS of freed memory: reading 0x01809de0-0x01809de4 4 byte(s)
+# 0 objPos::objPos                                          [C:\Users\Carso\OneDrive\Desktop\School Shit\Y2S1\2SH4_Code\project\2sh4-project-carson-henderson-and-noah-iwasaki/objPos.cpp:12]
+# 1 objPosArrayList::getElement                             [c:\Users\noahi\OneDrive - McMaster University\Documents\McMaster\COMPENG 2SH4\Root\Project\2sh4-project-carson-henderson-and-noah-iwasaki/objPosArrayList.cpp:95]
+# 2 Food::generateFood                                      [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Food.cpp:65]
+# 3 FoodBin::FoodBin                                        [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/FoodBin.cpp:21]
+# 4 __static_initialization_and_destruction_0               [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:17]
+# 5 _GLOBAL__sub_I_gameMechs                                [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:144]
+# 6 .text      
+# 7 mainCRTStartup
+# 8 ntdll.dll!RtlInitializeExceptionChain                  +0x6a     (0x7795bd2b <ntdll.dll+0x6bd2b>)
+# 9 ntdll.dll!RtlClearBits                                 +0xbe     (0x7795bcaf <ntdll.dll+0x6bcaf>)
+Note: @0:00:00.869 in thread 16516
+Note: prev lower malloc:  0x01809d68-0x01809dbc
+Note: 0x01809de0-0x01809de4 overlaps memory 0x01809de0-0x0180a740 that was freed here:
+Note: # 0 replace_operator_delete_array_nothrow                   [D:\a\drmemory\drmemory\common\alloc_replace.c:3002]
+Note: # 1 objPosArrayList::~objPosArrayList                       [c:\Users\noahi\OneDrive - McMaster University\Documents\McMaster\COMPENG 2SH4\Root\Project\2sh4-project-carson-henderson-and-noah-iwasaki/objPosArrayList.cpp:19]
+Note: # 2 FoodBin::FoodBin                                        [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/FoodBin.cpp:21]
+Note: # 3 __static_initialization_and_destruction_0               [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:17]
+Note: # 4 _GLOBAL__sub_I_gameMechs                                [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:144]
+Note: # 5 .text      
+Note: instruction: mov    (%eax) -> %edx
+
+Error #5: UNADDRESSABLE ACCESS of freed memory: reading 0x01809de4-0x01809de8 4 byte(s)
+# 0 objPos::objPos                                          [C:\Users\Carso\OneDrive\Desktop\School Shit\Y2S1\2SH4_Code\project\2sh4-project-carson-henderson-and-noah-iwasaki/objPos.cpp:13]
+# 1 objPosArrayList::getElement                             [c:\Users\noahi\OneDrive - McMaster University\Documents\McMaster\COMPENG 2SH4\Root\Project\2sh4-project-carson-henderson-and-noah-iwasaki/objPosArrayList.cpp:95]
+# 2 Food::generateFood                                      [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Food.cpp:65]
+# 3 FoodBin::FoodBin                                        [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/FoodBin.cpp:21]
+# 4 __static_initialization_and_destruction_0               [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:17]
+# 5 _GLOBAL__sub_I_gameMechs                                [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:144]
+# 6 .text      
+# 7 mainCRTStartup
+# 8 ntdll.dll!RtlInitializeExceptionChain                  +0x6a     (0x7795bd2b <ntdll.dll+0x6bd2b>)
+# 9 ntdll.dll!RtlClearBits                                 +0xbe     (0x7795bcaf <ntdll.dll+0x6bcaf>)
+Note: @0:00:00.871 in thread 16516
+Note: prev lower malloc:  0x01809d68-0x01809dbc
+Note: 0x01809de4-0x01809de8 overlaps memory 0x01809de0-0x0180a740 that was freed here:
+Note: # 0 replace_operator_delete_array_nothrow                   [D:\a\drmemory\drmemory\common\alloc_replace.c:3002]
+Note: # 1 objPosArrayList::~objPosArrayList                       [c:\Users\noahi\OneDrive - McMaster University\Documents\McMaster\COMPENG 2SH4\Root\Project\2sh4-project-carson-henderson-and-noah-iwasaki/objPosArrayList.cpp:19]
+Note: # 2 FoodBin::FoodBin                                        [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/FoodBin.cpp:21]
+Note: # 3 __static_initialization_and_destruction_0               [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:17]
+Note: # 4 _GLOBAL__sub_I_gameMechs                                [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:144]
+Note: # 5 .text      
+Note: instruction: mov    0x04(%eax) -> %edx
+
+Error #6: UNADDRESSABLE ACCESS of freed memory: reading 0x01809de8-0x01809de9 1 byte(s)
+# 0 objPos::objPos                                          [C:\Users\Carso\OneDrive\Desktop\School Shit\Y2S1\2SH4_Code\project\2sh4-project-carson-henderson-and-noah-iwasaki/objPos.cpp:14]
+# 1 objPosArrayList::getElement                             [c:\Users\noahi\OneDrive - McMaster University\Documents\McMaster\COMPENG 2SH4\Root\Project\2sh4-project-carson-henderson-and-noah-iwasaki/objPosArrayList.cpp:95]
+# 2 Food::generateFood                                      [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Food.cpp:65]
+# 3 FoodBin::FoodBin                                        [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/FoodBin.cpp:21]
+# 4 __static_initialization_and_destruction_0               [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:17]
+# 5 _GLOBAL__sub_I_gameMechs                                [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:144]
+# 6 .text      
+# 7 mainCRTStartup
+# 8 ntdll.dll!RtlInitializeExceptionChain                  +0x6a     (0x7795bd2b <ntdll.dll+0x6bd2b>)
+# 9 ntdll.dll!RtlClearBits                                 +0xbe     (0x7795bcaf <ntdll.dll+0x6bcaf>)
+Note: @0:00:00.873 in thread 16516
+Note: prev lower malloc:  0x01809d68-0x01809dbc
+Note: 0x01809de8-0x01809de9 overlaps memory 0x01809de0-0x0180a740 that was freed here:
+Note: # 0 replace_operator_delete_array_nothrow                   [D:\a\drmemory\drmemory\common\alloc_replace.c:3002]
+Note: # 1 objPosArrayList::~objPosArrayList                       [c:\Users\noahi\OneDrive - McMaster University\Documents\McMaster\COMPENG 2SH4\Root\Project\2sh4-project-carson-henderson-and-noah-iwasaki/objPosArrayList.cpp:19]
+Note: # 2 FoodBin::FoodBin                                        [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/FoodBin.cpp:21]
+Note: # 3 __static_initialization_and_destruction_0               [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:17]
+Note: # 4 _GLOBAL__sub_I_gameMechs                                [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:144]
+Note: # 5 .text      
+Note: instruction: movzx  0x08(%eax) -> %edx
+
+Error #7: INVALID HEAP ARGUMENT to free 0x01809de0
+# 0 replace_operator_delete_array_nothrow                   [D:\a\drmemory\drmemory\common\alloc_replace.c:3002]
+# 1 objPosArrayList::~objPosArrayList                       [c:\Users\noahi\OneDrive - McMaster University\Documents\McMaster\COMPENG 2SH4\Root\Project\2sh4-project-carson-henderson-and-noah-iwasaki/objPosArrayList.cpp:19]
+# 2 FoodBin::FoodBin                                        [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/FoodBin.cpp:21]
+# 3 __static_initialization_and_destruction_0               [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:17]
+# 4 _GLOBAL__sub_I_gameMechs                                [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:144]
+# 5 .text      
+# 6 mainCRTStartup
+# 7 ntdll.dll!RtlInitializeExceptionChain                  +0x6a     (0x7795bd2b <ntdll.dll+0x6bd2b>)
+# 8 ntdll.dll!RtlClearBits                                 +0xbe     (0x7795bcaf <ntdll.dll+0x6bcaf>)
+Note: @0:00:00.875 in thread 16516
+Note: prev lower malloc:  0x01809d68-0x01809dbc
+Note: memory was previously freed here:
+Note: # 0 replace_operator_delete_array_nothrow                   [D:\a\drmemory\drmemory\common\alloc_replace.c:3002]
+Note: # 1 objPosArrayList::~objPosArrayList                       [c:\Users\noahi\OneDrive - McMaster University\Documents\McMaster\COMPENG 2SH4\Root\Project\2sh4-project-carson-henderson-and-noah-iwasaki/objPosArrayList.cpp:19]
+Note: # 2 FoodBin::FoodBin                                        [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/FoodBin.cpp:21]
+Note: # 3 __static_initialization_and_destruction_0               [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:17]
+Note: # 4 _GLOBAL__sub_I_gameMechs                                [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:144]
+Note: # 5 .text      
+
+Error #8: INVALID HEAP ARGUMENT to free 0x01809de0
+# 0 replace_operator_delete_array_nothrow                   [D:\a\drmemory\drmemory\common\alloc_replace.c:3002]
+# 1 objPosArrayList::~objPosArrayList                       [c:\Users\noahi\OneDrive - McMaster University\Documents\McMaster\COMPENG 2SH4\Root\Project\2sh4-project-carson-henderson-and-noah-iwasaki/objPosArrayList.cpp:19]
+# 2 FoodBin::FoodBin                                        [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/FoodBin.cpp:13]
+# 3 __static_initialization_and_destruction_0               [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:17]
+# 4 _GLOBAL__sub_I_gameMechs                                [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:144]
+# 5 .text      
+# 6 mainCRTStartup
+# 7 ntdll.dll!RtlInitializeExceptionChain                  +0x6a     (0x7795bd2b <ntdll.dll+0x6bd2b>)
+# 8 ntdll.dll!RtlClearBits                                 +0xbe     (0x7795bcaf <ntdll.dll+0x6bcaf>)
+Note: @0:00:00.877 in thread 16516
+Note: prev lower malloc:  0x01809d68-0x01809dbc
+Note: memory was previously freed here:
+Note: # 0 replace_operator_delete_array_nothrow                   [D:\a\drmemory\drmemory\common\alloc_replace.c:3002]
+Note: # 1 objPosArrayList::~objPosArrayList                       [c:\Users\noahi\OneDrive - McMaster University\Documents\McMaster\COMPENG 2SH4\Root\Project\2sh4-project-carson-henderson-and-noah-iwasaki/objPosArrayList.cpp:19]
+Note: # 2 FoodBin::FoodBin                                        [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/FoodBin.cpp:21]
+Note: # 3 __static_initialization_and_destruction_0               [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:17]
+Note: # 4 _GLOBAL__sub_I_gameMechs                                [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:144]
+Note: # 5 .text      
+
+Error #9: UNINITIALIZED READ: reading 0x0062fae0-0x0062fae4 4 byte(s)
+# 0 msvcrt.dll!_kbhit_nolock
+# 1 msvcrt.dll!_kbhit    
+# 2 MacUILib_hasChar               [C:\Users\Carso\OneDrive\Desktop\School Shit\Y2S1\2SH4_Code\project\2sh4-project-carson-henderson-and-noah-iwasaki/MacUILib.c:28]
+# 3 GetInput                       [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:58]
+# 4 main                           [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:36]
+Note: @0:00:04.397 in thread 16516
+Note: instruction: cmp    (%ebx) $0x00000000
+
+Error #10: UNINITIALIZED READ: reading 0x0062fe94-0x0062fe98 4 byte(s)
+# 0 msvcrt.dll!_getch_nolock
+# 1 msvcrt.dll!_getch    
+# 2 MacUILib_getChar               [C:\Users\Carso\OneDrive\Desktop\School Shit\Y2S1\2SH4_Code\project\2sh4-project-carson-henderson-and-noah-iwasaki/MacUILib.c:33]
+# 3 GetInput                       [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:59]
+# 4 main                           [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:36]
+Note: @0:00:07.396 in thread 16516
+Note: instruction: cmp    0xffffffe0(%ebp) $0x00000000
+
+Error #11: UNINITIALIZED READ: reading 0x0180b924-0x0180b926 2 byte(s)
+# 0 msvcrt.dll!_kbhit_nolock
+# 1 msvcrt.dll!_kbhit    
+# 2 MacUILib_hasChar               [C:\Users\Carso\OneDrive\Desktop\School Shit\Y2S1\2SH4_Code\project\2sh4-project-carson-henderson-and-noah-iwasaki/MacUILib.c:28]
+# 3 GetInput                       [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:58]
+# 4 main                           [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:36]
+Note: @0:00:10.538 in thread 16516
+Note: instruction: data16 cmp    0xfffffffc(%ebx) %si
+
+Error #12: UNINITIALIZED READ: reading 0x0180b932-0x0180b933 1 byte(s)
+# 0 msvcrt.dll!_kbhit_nolock
+# 1 msvcrt.dll!_kbhit    
+# 2 MacUILib_hasChar               [C:\Users\Carso\OneDrive\Desktop\School Shit\Y2S1\2SH4_Code\project\2sh4-project-carson-henderson-and-noah-iwasaki/MacUILib.c:28]
+# 3 GetInput                       [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:58]
+# 4 main                           [C:\Users\Carson\Desktop\School\2SH stuff\Programs\project_real\2sh4-project-carson-henderson-and-noah-iwasaki/Project.cpp:36]
+Note: @0:00:10.538 in thread 16516
+Note: instruction: cmp    0x0a(%ebx) $0x00
+
+Error #13: LEAK 2 direct bytes 0x017f0c90-0x017f0c92 + 0 indirect bytes
+# 0 replace_malloc                            [D:\a\drmemory\drmemory\common\alloc_replace.c:2580]
+# 1 msvcrt.dll!_strdup   
+# 2 .text                                     [C:\Users\Carso\OneDrive\Desktop\School Shit\Y2S1\2SH4_Code\project\2sh4-project-carson-henderson-and-noah-iwasaki/MacUILib.c:46]
+# 3 __mingw_glob                              [C:\Users\Carso\OneDrive\Desktop\School Shit\Y2S1\2SH4_Code\project\2sh4-project-carson-henderson-and-noah-iwasaki/MacUILib.c:46]
+# 4 _setargv                                  [C:\Users\Carso\OneDrive\Desktop\School Shit\Y2S1\2SH4_Code\project\2sh4-project-carson-henderson-and-noah-iwasaki/MacUILib.c:46]
+# 5 .text      
+# 6 mainCRTStartup
+# 7 ntdll.dll!RtlInitializeExceptionChain    +0x6a     (0x7795bd2b <ntdll.dll+0x6bd2b>)
+# 8 ntdll.dll!RtlClearBits                   +0xbe     (0x7795bcaf <ntdll.dll+0x6bcaf>)
+
+===========================================================================
+FINAL SUMMARY:
+
+DUPLICATE ERROR COUNTS:
+	Error #   1:      5
+	Error #   2:      5
+	Error #   3:      5
+	Error #   4:     14
+	Error #   5:     14
+	Error #   6:     14
+	Error #   7:      4
+	Error #   9:    118
+	Error #  10:      2
+	Error #  11:     18
+	Error #  12:      9
+
+SUPPRESSIONS USED:
+
+ERRORS FOUND:
+      6 unique,    57 total unaddressable access(es)
+      4 unique,   147 total uninitialized access(es)
+      2 unique,     5 total invalid heap argument(s)
+      0 unique,     0 total GDI usage error(s)
+      0 unique,     0 total handle leak(s)
+      0 unique,     0 total warning(s)
+      1 unique,     1 total,      2 byte(s) of leak(s)
+      0 unique,     0 total,      0 byte(s) of possible leak(s)
+ERRORS IGNORED:
+     18 potential error(s) (suspected false positives)
+         (details: C:\Users\noahi\AppData\Roaming\Dr. Memory\DrMemory-Project.exe.19208.000\potential_errors.txt)
+      1 potential leak(s) (suspected false positives)
+         (details: C:\Users\noahi\AppData\Roaming\Dr. Memory\DrMemory-Project.exe.19208.000\potential_errors.txt)
+     36 unique,    36 total,   7922 byte(s) of still-reachable allocation(s)
+         (re-run with "-show_reachable" for details)
+Details: C:\Users\noahi\AppData\Roaming\Dr. Memory\DrMemory-Project.exe.19208.000\results.txt
