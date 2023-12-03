@@ -166,7 +166,14 @@ void Player::checkSuicide(){
         playerPosList.getElement(tempPos, i);
         if (headPos.isPosEqual(&tempPos)){
             mainGameMechsRef->setExitTrue();
+            mainGameMechsRef->setLoseFlag();
         }
     }
 
+}
+
+// return the pointer to the reference game mechanics of the player
+// so I don't have to keep declaring things with gamemechs
+GameMechs* Player::getGameMechs(){
+    return mainGameMechsRef;
 }

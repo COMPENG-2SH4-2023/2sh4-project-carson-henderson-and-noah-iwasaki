@@ -2,6 +2,22 @@
 #include <time.h>
 #include <stdlib.h>
 
+Food::Food()
+{
+    // empty constructor. This is here so an array of food objects can be declared.
+    // Don't use this constructor otherwise.
+
+    objPos foodPos;
+    foodPos.setObjPos(4,4,'&');
+
+    srand(time(NULL));
+}
+
+// horrible syntax, but C++ doesnt give me another way to do this.
+void Food::updateGameMechs(GameMechs *thisGMRef)
+{
+    mainGameMechsRef = thisGMRef;
+}
 
 Food::Food(GameMechs* thisGMRef)
 {

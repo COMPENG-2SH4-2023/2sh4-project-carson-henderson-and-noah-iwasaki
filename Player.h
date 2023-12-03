@@ -28,6 +28,7 @@ class Player
 
         void foodEaten();
         void checkSuicide();
+        GameMechs *getGameMechs();
 
     private:
         objPosArrayList playerPosList;   // Upgrade this in iteration 3.       

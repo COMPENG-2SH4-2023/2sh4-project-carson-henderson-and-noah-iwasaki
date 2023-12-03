@@ -2,6 +2,7 @@
 #define FOODBIN_H
 
 #include "Food.h"
+#include "Player.h"
 
 class FoodBin
 {
@@ -9,13 +10,14 @@ class FoodBin
     private:
 
         Food *foodList;
+        const int size = 5;
 
     public:
 
-        FoodBin(GameMechs* thisGMRef);
+        FoodBin(Player snake);
         ~FoodBin();
 
-        void checkFoodCollision(objPos &head);
+        bool checkFoodCollision(Player snake);
 
 };
 

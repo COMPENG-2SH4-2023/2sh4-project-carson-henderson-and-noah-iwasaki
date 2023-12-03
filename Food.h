@@ -10,8 +10,12 @@ class Food
         objPos foodPos;
         GameMechs* mainGameMechsRef;
     public:
+
+        Food();
         Food(GameMechs* thisGMRef);
         ~Food();
+
+        void updateGameMechs(GameMechs *thisGMRef);
 
         void generateFood(objPosArrayList blockOff);
         void getFoodPos(objPos &returnPos);
