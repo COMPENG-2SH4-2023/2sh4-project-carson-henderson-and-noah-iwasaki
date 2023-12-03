@@ -127,7 +127,6 @@ void DrawScreen(void)
     cout << "Your score is: " << gameMechs.getScore() << endl;
 
 
-
 }
 
 void LoopDelay(void)
@@ -138,7 +137,10 @@ void LoopDelay(void)
 
 void CleanUp(void)
 {
-    MacUILib_clearScreen();
+    if (gameMechs.getLoseFlagStatus())
+        cout << "YOU DIED WITH A SCORE OF " << gameMechs.getScore();
+    else
+        cout << "YOU QUIT WITH A SCORE OF " << gameMechs.getScore();
     MacUILib_uninit();
 }
 

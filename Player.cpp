@@ -166,6 +166,7 @@ void Player::checkSuicide(){
         playerPosList.getElement(tempPos, i);
         if (headPos.isPosEqual(&tempPos)){
             mainGameMechsRef->setExitTrue();
+            mainGameMechsRef->setLoseFlag();
         }
     }
 
