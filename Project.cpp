@@ -4,6 +4,7 @@
 #include "GameMechs.h"
 #include "Player.h"
 #include "Food.h"
+#include "FoodBin.h"
 #define DELAY_CONST 100000 // 0.1s delay
 #define BOARDY 40
 #define BOARDX 20
