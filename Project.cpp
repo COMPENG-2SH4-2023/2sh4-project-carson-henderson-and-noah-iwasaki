@@ -68,24 +68,16 @@ void RunLogic(void)
         gameMechs.setInput('\0'); //reset input
     }
 
-    // check if the snake is on a food tile
-    /*
-    objPos head;
-    snake.getHeadPos(head);
-    if (apple.checkForFood(head)){
-        apple.generateFood(snakeList);
-        snake.foodEaten();
-    }
-    */
-
-
-    apples.checkFoodCollision(snake);
-
     // move the snake
     snake.movePlayer();
 
     //check if you died
-    snake.checkSuicide();
+    snake.checkSuicide();  
+
+    // check for a food collision
+    // this method also handles the generation of new food
+    apples.checkFoodCollision(snake);
+
 }
 
 void DrawScreen(void)

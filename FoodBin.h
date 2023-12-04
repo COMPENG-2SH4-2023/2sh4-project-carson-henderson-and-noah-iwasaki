@@ -15,6 +15,7 @@ class FoodBin
 
     public:
 
+        // note: our foodbin implementation doesn't use an objPosArrayList, however the random generation of elements does.
         FoodBin(Player &snake);
         ~FoodBin();
 

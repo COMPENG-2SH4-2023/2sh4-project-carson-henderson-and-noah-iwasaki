@@ -77,6 +77,11 @@ bool FoodBin::checkFoodCollision(Player &snake){
                     scoreToAdd = 1;
                     break;
 
+                case 'x':
+                    scoreToAdd = 10;
+                    snake.foodEaten(0); // increase the length an extra time
+                    break;
+
                 // default case should never trigger
                 // if it does this lets a dev know
                 default:

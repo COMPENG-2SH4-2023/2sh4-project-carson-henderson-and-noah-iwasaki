@@ -45,6 +45,9 @@ void Food::generateFood(objPosArrayList blockOff){
     if (randomNum == 0){
         symbol = '@';
     }
+    if (randomNum == 1){
+        symbol = 'x';
+    }
 
 
 
